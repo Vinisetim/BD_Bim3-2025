@@ -116,3 +116,44 @@ insert into livro_autor(id_autor, id_livro) values(7,14);
 insert into livro_autor(id_autor, id_livro) values(5,9);
 insert into livro_autor(id_autor, id_livro) values(4,12);
 insert into livro_autor(id_autor, id_livro) values(3,6);
+
+select nome_editora, titulo, genero from livro where id_livro >= 5;
+
+select titulo 
+from livro
+where genero ='infantil'
+or genero = 'Técnico';
+
+select id_livro, titulo
+from livro 
+where genero = 'infantil'
+or (genero = 'Técnico' and id_editora = 2);
+
+/*a condição like permite realizar pesquisa através de 
+filtros podendo ser apenas por uma letra  , por palavras 
+inteiras ou até mesmo outros tipos de caracteres, 
+facilitando assim o processo de busca de registro no BD*/
+select id_editora, nome_editora 
+from editora
+where nome_editora like 'A%';
+
+select id_autor, upper(nome_autor)
+from autor
+where nome_autor like 'maria%';
+
+select id_livro, titulo 
+from livro 
+order by titulo ;
+
+select id_livro, titulo 
+from livro 
+order by titulo desc;
+
+select id_livro, titulo 
+from livro 
+order by paginas desc;
+
+select livro.id_livro, livro.titulo, editora.nome_editora
+from livro, editora
+where livro.id_editora = editora.id_editora
+order by id_livro;
