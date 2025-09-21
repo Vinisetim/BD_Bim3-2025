@@ -157,3 +157,153 @@ select livro.id_livro, livro.titulo, editora.nome_editora
 from livro, editora
 where livro.id_editora = editora.id_editora
 order by id_livro;
+
+
+/*atividade bimestral 
+exercicio 1*/
+/*select todas as colunas das tabelas*/
+select * from editora;
+select* from livro;
+select* from autor;
+select* from livro_autor;
+/*a*/
+select livro.Id_livro, livro.titulo, editora.nome_editora, editora.nome_contato
+from livro, editora
+where livro.id_editora = editora.id_editora;
+
+/*b*/
+select livro.titulo, livro.gênero, autor.nome_autor
+from livro, autor, livro_autor 
+where livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor;
+
+/*c*/
+select livro.titulo, livro.gereno, livro.sinopse, autor.nome_autor, editora.nome_editora
+from livro, editora, autor, livro_autor 
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor;
+
+/*d*/
+select  editora.Id_editora, editora.nome_editora, livro.titulo, livro.gênero, autor.nome_autor
+from editora, livro, autor, livro_autor
+where editora.id_editora = livro.id_editora and livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor;
+
+/*e*/
+
+select editora.id_editora, editora.nome_editora, editora.nome_contato, editora.tel, editora.email, livro.id_livro,livro.titulo, livro.gênero, livro.publicacao, livro.paginas, livro.sinopse, autor.id_autor, autor.nome_autor
+from editora, livro, autor, livro_autor
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor;
+
+/*2- Ordem ascendente*/
+
+/*a*/
+select livro.Id_livro, livro.titulo, editora.nome_editora, editora.nome_contato
+from livro, editora
+where livro.id_editora = editora.id_editora 
+order by id_livro;
+
+/*b*/
+select livro.titulo, livro.gênero, autor.nome_autor
+from livro, autor, livro_autor 
+where livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo;
+
+/*c*/
+select livro.titulo, livro.gereno, livro.sinopse, autor.nome_autor, editora.nome_editora
+from livro, editora, autor, livro_autor 
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by livro_titulo;
+
+/*d*/
+select  editora.Id_editora, editora.nome_editora, livro.titulo, livro.gênero, autor.nome_autor
+from editora, livro, autor, livro_autor
+where editora.id_editora = livro.id_editora and livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo;
+
+/*e*/
+select editora.id_editora, editora.nome_editora, editora.nome_contato, editora.tel, editora.email, livro.id_livro,livro.titulo, livro.gênero, livro.publicacao, livro.paginas, livro.sinopse, autor.id_autor, autor.nome_autor
+from editora, livro, autor, livro_autor
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by id_livro;
+
+/*3 - Ordem descendente*/
+
+/*a*/
+select livro.Id_livro, livro.titulo, editora.nome_editora, editora.nome_contato
+from livro, editora
+where livro.id_editora = editora.id_editora 
+order by id_livro desc;
+
+/*b*/
+select livro.titulo, livro.gênero, autor.nome_autor
+from livro, autor, livro_autor 
+where livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo desc;
+
+/*c*/
+select livro.titulo, livro.gereno, livro.sinopse, autor.nome_autor, editora.nome_editora
+from livro, editora, autor, livro_autor 
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by livro_titulo desc;
+
+/*d*/
+select  editora.Id_editora, editora.nome_editora, livro.titulo, livro.gênero, autor.nome_autor
+from editora, livro, autor, livro_autor
+where editora.id_editora = livro.id_editora and livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo desc;
+
+/*e*/
+select editora.id_editora, editora.nome_editora, editora.nome_contato, editora.tel, editora.email, livro.id_livro,livro.titulo, livro.gênero, livro.publicacao, livro.paginas, livro.sinopse, autor.id_autor, autor.nome_autor
+from editora, livro, autor, livro_autor
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by id_livro desc;
+
+/*4 -Titulo em caixa alta*/
+
+/*A*/
+select livro.Id_livro, upper(livro.titulo), editora.nome_editora, editora.nome_contato
+from livro, editora
+where livro.id_editora = editora.id_editora 
+order by id_livro;
+
+
+/*b*/
+select upper(livro.titulo), livro.gênero, autor.nome_autor
+from livro, autor, livro_autor 
+where livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo;
+
+/*c*/
+select upper(livro.titulo), livro.gereno, livro.sinopse, autor.nome_autor, editora.nome_editora
+from livro, editora, autor, livro_autor 
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by livro_titulo;
+
+/*d*/
+select  editora.Id_editora, editora.nome_editora, upper(livro.titulo), livro.gênero, autor.nome_autor
+from editora, livro, autor, livro_autor
+where editora.id_editora = livro.id_editora and livro.id_livro = livro_autor.id_livro and autor.id_autor = livro_autor.id_autor
+order by livro_titulo;
+
+/*e*/
+select editora.id_editora, editora.nome_editora, editora.nome_contato, editora.tel, editora.email, livro.id_livro, upper(livro.titulo), livro.gênero, livro.publicacao, livro.paginas, livro.sinopse, autor.id_autor, autor.nome_autor
+from editora, livro, autor, livro_autor
+where livro.id_editora = editora.id_editora and livro.id_livro = livro_autor.id_livro and livro_autor.id_autor = autor.id_autor
+order by id_livro;
+
+/*5 outras selects*/
+
+/*A*/
+select l.titulo, l.genero, l.publicacao, a.nome_autor
+from livro l, autor a, livro_autor la
+where l.id_livro = la.id_livro
+and la.id_autor = a.id_autor and a.nome_autor = 'Wagner Gusmão';
+
+/*B*/
+select l.titulo, a.nome_autor, e.nome_editra
+from livro l, autor a, livro_autor la, editora e
+where l.id_livro = la.id_livro and la.id_editora = e.id_editora and l.genero = 'Técnico' and (e.nome_editora = 'Wagner S/A' or e.nome_editora = 'WG S/A');
+
+/*C*/
+
+select l.titulo, l.paginas, e.nome_editora
+from livro l, editora e
+where  l.id_editora = e.id_editora and l.titulo like '%A Arte%' and l.paginas > 250;
