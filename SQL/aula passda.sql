@@ -307,3 +307,62 @@ where l.id_livro = la.id_livro and la.id_editora = e.id_editora and l.genero = '
 select l.titulo, l.paginas, e.nome_editora
 from livro l, editora e
 where  l.id_editora = e.id_editora and l.titulo like '%A Arte%' and l.paginas > 250;
+
+/*Trabalhando com estruturas de pesquisa com JOIN*/
+ 
+/*INNER JOIN vai retornar o que comum entre as tabelas*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+inner join editora as b
+on a.id_editora = b.id_editora;
+ 
+/*LEFT JOIN vai retornar tudo que é comum e o que pertence somente a tabela a esquerda*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+left join editora as b
+on a.id_editora = b.id_editora;
+ 
+/*LEFT JOIN com WHERE traz tudo que pertence apenas a tabela a esquerda*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+left join editora as b
+on a.id_editora = b.id_editora
+where a.id_editora is null;
+ 
+/*RIGHT JOIN vai retornar tudo que é comum e o que pertence somente a tabela a direita*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+right join editora as b
+on a.id_editora = b.id_editora;
+ 
+/*RIGHT JOIN com WHERE traz tudo que pertence apenas a tabela a direita*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+right join editora as b
+on a.id_editora = b.id_editora
+where a.id_editora is null;
+ 
+/*UNION retorna tudo que esta nas tabelas a esquerda e direita*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+left join editora as b
+on a.id_editora = b.id_editora
+union
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+right join editora as b
+on a.id_editora = b.id_editora;
+ 
+/*UNION com WHERE retorna tudo que pertence apenas a tabelas a esquerda e direita*/
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+left join editora as b
+on a.id_editora = b.id_editora
+where b.id_editora is null
+union
+select a.titulo, a.genero, b.nome_editora
+from livro as a
+right join editora as b
+on a.id_editora = b.id_editora
+where a.id_editora is null;
+ 
